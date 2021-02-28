@@ -36,31 +36,29 @@ def get_list_of_values(v_tuple: tuple) -> list:
     for i in range(len(v_tuple[0])):
         path = v_tuple[1][i]
         x1 = v_tuple[0][i]
-        d = get_numbers(x1, path)
-        list_of_values.append(d)
+        list_of_values.append(get_numbers(x1, path))
     return list_of_values
 
 
 def get_links(l_path: str) -> tuple:
     list_links = list()
     list_numbers = list()
-    c1 = list()
     getr = requests.get(l_path)
     soup = bs4.BeautifulSoup(getr.text, 'html.parser')
     c = (soup.find_all('a')[5:-2:2])
-    for item in c:
-        c1.append(str(item).replace('amp;', ''))
+    c1 = [str(item).replace('amp;', '') for item in c]
+
     for i in range(len(c1)):
+        a = 'https://www.volby.cz/pls/ps2017nss/'
+        path = os.path.join(a, format((c1[i]).split('"')[1]))
+        list_links.append(path)
         x1 = format(c1[i].split('"')[1].split('=')[3].split('&')[0])
         list_numbers.append(int(x1))
-        path = os.path.join('https://www.volby.cz/pls/ps2017nss/', format(c1[i]).split('"')[1])
-        list_links.append(path)
     return list_numbers, list_links
 
 
 def get_numbers(x1: int, path: str) -> list:
     seznam = list()
-
     getr = requests.get(path)
     soup = bs4.BeautifulSoup(getr.text, 'html.parser')
     c = soup.find_all('h3')
@@ -68,10 +66,10 @@ def get_numbers(x1: int, path: str) -> list:
 
     x = dict(pd.read_html(path, encoding='UTF-8')[0])
     x3 = list(x[('Voličiv seznamu', 'Voličiv seznamu')].values)
-    x4 = list(x[('Vydanéobálky', 'Vydanéobálky')].values)
-    x5 = list(x[('Platnéhlasy', 'Platnéhlasy')].values)
     seznam.extend(x3)
+    x4 = list(x[('Vydanéobálky', 'Vydanéobálky')].values)
     seznam.extend(x4)
+    x5 = list(x[('Platnéhlasy', 'Platnéhlasy')].values)
     seznam.extend(x5)
 
     x = dict(pd.read_html(path, encoding='UTF-8')[1])
@@ -137,11 +135,11 @@ if __name__ == '__main__':
     FIRST_PATH = sys.argv[1]  # have to enclose it in double quotes!!!
     FILE = sys.argv[2]
     start = time.time()
-    print(f'downloading data from chosen URL: {FIRST_PATH}')
+    print(f'DOWNLOADING DATA FROM CHOSEN URL: {FIRST_PATH}')
     main()
-    print(f'saving to file: {FILE}')
-    print('terminating this script')
+    print(f'SAVING TO FILE: {FILE}')
+    print('TERMINATING ELECTION SCRAPER')
     end = time.time()
-    print(f'it took: {end - start} seconds')
+    print(f'IT TOOK: {end - start} seconds')
 
 print()
