@@ -137,8 +137,11 @@ if __name__ == '__main__':
     FIRST_PATH = sys.argv[1]  # have to enclose it in double quotes!!!
     FILE = sys.argv[2]
     start = time.time()
+    print(f'downloading data from chosen URL: {FIRST_PATH}')
     main()
+    print(f'saving to file: {FILE}')
+    print('terminating this script')
     end = time.time()
-    print('it took: ', end - start)
+    print(f'it took: {end - start} seconds')
 
 print()
