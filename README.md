@@ -12,7 +12,7 @@ pip3 –install requirements.txt
 # Launching this code:
 launching of the file elect.py within command line requires 2 arguments:
 
-python elect.py <URL of the territorial self-governing unit> <final file> (the first one must be in double quotes!!!)
+python elect.py "URL of the territorial self-governing unit" "final file" (the first one must be in double quotes!!!)
 
 file will be saved as CSV file (.csv)
 
