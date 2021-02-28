@@ -27,6 +27,16 @@ launching this code:
 
 ![radek s argumenty](https://user-images.githubusercontent.com/75171974/109416632-bf4ad900-79bf-11eb-8d92-e348ba4e68ef.png)
 
+running:
+
+![prubeh stahovani](https://user-images.githubusercontent.com/75171974/109416815-b9092c80-79c0-11eb-9cb3-2f4a821db7c1.png)
+
+partial output:
+
+![election_tabulka](https://user-images.githubusercontent.com/75171974/109416848-e81f9e00-79c0-11eb-84e4-f6e484e14160.png)
+
+
+
 
 
 
