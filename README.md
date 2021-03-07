@@ -35,7 +35,7 @@ running:
 
 
 
-partial output:   '-': no ballot of this party in this NUTS level 5(commune)
+partial output:   '-' means no ballot of this party in this NUTS level 5(commune)
 
 ![election_tab](https://user-images.githubusercontent.com/75171974/110236830-52dc5680-7f38-11eb-8258-7f821b3a865e.png)
 
