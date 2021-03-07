@@ -76,13 +76,12 @@ def get_numbers(x1: int, path: str) -> list:
     x6 = list(x[('Platné hlasy', 'celkem')].values)
     x6a = list(x[('Strana', 'číslo')].values)
     x6b = list()
-    while x6:
-        for i in range(1, 16):
-            if i in x6a:
-                y = x6.pop(0)
-                x6b.append(y)
-            else:
-                x6b.append('0')
+
+    for i in range(1, 16):
+        if i in x6a:
+            x6b.append(x6.pop(0))
+        else:
+            x6b.append('-')
     seznam.extend(x6b)
 
     x = dict(pd.read_html(path, encoding='UTF-8')[2])
@@ -90,44 +89,47 @@ def get_numbers(x1: int, path: str) -> list:
     x7a = list(x[('Strana', 'číslo')].values)
     x7b = list()
     x7c = list()
-    if x7[-1] == '-':
-        del x7[-1]
-    if x7a[-1] == '-':
-        del x7a[-1]
+
     for item in x7a:
+        if item == '-':
+            item = 31
         item = int(item)
         x7c.append(item)
-    while x7:
-        for i in range(16, 32):
-            if i in x7c:
-                y = x7.pop(0)
-                x7b.append(y)
-            else:
-                x7b.append('0')
+
+    for i in range(16, 32):
+        if i in x7c:
+            x7b.append(x7.pop(0))
+        else:
+            x7b.append('-')
     seznam.extend(x7b)
+
     new_seznam = list()
     for item in seznam:
         item = str(item)
         new_seznam.append(item)
     result = x2 + num_conversion(new_seznam)
     result.insert(0, x1)
+    print(result)
     return result
 
 
 def num_conversion(my_list: list) -> list:
     new_list = list()
     for num in my_list:
-        try:
-            new_list = [int(num) for num in my_list]
-        except ValueError:
-            num1 = ''
-            for char in num:
-                if char.isdigit():
-                    num1 += str(char)
-                    num = num[1:]
-                if char == '\\':
-                    num = num[4:]
-            new_list.append(int(num1))
+        if num == '-':
+            new_list.append(num)
+        else:
+            try:
+                new_list = [int(num) for num in my_list]
+            except ValueError:
+                num1 = ''
+                for char in num:
+                    if char.isdigit():
+                        num1 += str(char)
+                        num = num[1:]
+                    if char == '\\':
+                        num = num[4:]
+                new_list.append(int(num1))
     return new_list
 
 
