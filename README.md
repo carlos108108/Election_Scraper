@@ -37,7 +37,8 @@ running:
 
 partial output:
 
-![election_tabulka](https://user-images.githubusercontent.com/75171974/109416848-e81f9e00-79c0-11eb-84e4-f6e484e14160.png)
+![election_tab](https://user-images.githubusercontent.com/75171974/110236830-52dc5680-7f38-11eb-8258-7f821b3a865e.png)
+
 
 
 
