@@ -37,6 +37,9 @@ running:
 
 partial output:   '-' means no ballot of this party in this NUTS level 5(commune)
 
+![prubeh_stahovani_list](https://user-images.githubusercontent.com/75171974/110328008-0ae23000-801b-11eb-8eb5-eb47e20f1ecc.png)
+
+
 ![election_tab](https://user-images.githubusercontent.com/75171974/110236830-52dc5680-7f38-11eb-8258-7f821b3a865e.png)
 
 
