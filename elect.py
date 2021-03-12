@@ -48,9 +48,9 @@ def get_links(l_path: str) -> tuple:
     c = (soup.find_all('a')[5:-2:2])
     c1 = [str(item).replace('amp;', '') for item in c]
 
+    AB = 'https://www.volby.cz/pls/ps2017nss/'
     for i in range(len(c1)):
-        a = 'https://www.volby.cz/pls/ps2017nss/'
-        path = os.path.join(a, format((c1[i]).split('"')[1]))
+        path = os.path.join(AB, format((c1[i]).split('"')[1]))
         list_links.append(path)
         x1 = format(c1[i].split('"')[1].split('=')[3].split('&')[0])
         list_numbers.append(int(x1))
@@ -103,10 +103,7 @@ def get_numbers(x1: int, path: str) -> list:
             x7b.append('-')
     seznam.extend(x7b)
 
-    new_seznam = list()
-    for item in seznam:
-        item = str(item)
-        new_seznam.append(item)
+    new_seznam = [str(item) for item in seznam]
     result = x2 + num_conversion(new_seznam)
     result.insert(0, x1)
     print(result)
