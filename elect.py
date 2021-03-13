@@ -103,8 +103,8 @@ def get_numbers(x1: int, path: str) -> list:
             x7b.append('-')
     seznam.extend(x7b)
 
-    new_seznam = [str(item) for item in seznam]
-    result = x2 + num_conversion(new_seznam)
+    seznam = map(str, seznam)
+    result = x2 + num_conversion(list(seznam))
     result.insert(0, x1)
     print(result)
     return result
