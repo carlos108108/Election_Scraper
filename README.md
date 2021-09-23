@@ -1,7 +1,4 @@
-# Project3_election_scraper
-my third project at Online Python Academy
-
-# Description of this project:
+# Descriptiont:
 this project is useful for extraction of parliamentary election results in the Czech Republic in 2017 
 
 libraries which are used in this code are saved in the file: requirements.txt; the new virtual environment is recommended for their installation; launching via Manager:
@@ -11,7 +8,7 @@ pip3 --version
 pip3 --install requirements.txt
 
 
-# Launching this code:
+# Launching the code:
 launching of the file elect.py within command line requires 2 arguments:
 
 python elect.py "URL of the territorial self-governing unit" "final file" (the first one must be in double quotes!!!)
