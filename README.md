@@ -1,5 +1,9 @@
 # Tableau visualisation
+whole district:
 https://public.tableau.com/app/profile/karel.nov.k/viz/Election_scraper/Election2017ProstjovNUTSlevel4-districttotal
+
+each commune:
+https://public.tableau.com/app/profile/karel.nov.k/viz/Election_scraper/Election2017ProstjovNUTSlevel4-district
 
 # Descriptiont:
 this project is useful for extraction of parliamentary election results in the Czech Republic in 2017 
